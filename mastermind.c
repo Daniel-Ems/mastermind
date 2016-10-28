@@ -2,7 +2,7 @@
 #include <strings.h>
 #include <stdlib.h>
 #include <time.h>
-
+ 
 int main(void)
 {
 //printf("Give me a number hombre");
@@ -12,24 +12,35 @@ int main(void)
 
 
 time_t t;
-char users[10];
 srand((unsigned) time(&t));
-fgets(users, sizeof(users), stdin);
+
+char users[10];
+strtol(fgets(users, sizeof(users), stdin),NULL, 10);
 
 int a = 1;
 int b = 2;
 int c = 0;
 int d = 3;
+users[a]=users[a]-48;
+users[b]=users[b]-48;
+users[c]=users[c]-48;
+users[d]=users[d]-48;
    
-printf("%c, %c, %c, %c \n", users[a], users[b], users[c], users[d]);
+printf("%d, %d, %d, %d\n", 	users[a], users[b], users[c], users[d]);
 
 
 //TODO: I need to find out how to take a four digit number and turn it in
 //to single digits and then insert them in the arrays, once they are in 
 // the arrays... i win
-int numbers[10] = {rand() % 10, rand() % 10, rand() % 10, rand() % 10};
+char numbers[5] = "1779";
+numbers[a]=numbers[a]-48;
+numbers[b]=numbers[b]-48;
+numbers[c]=numbers[c]-48;
+numbers[d]=numbers[d]-48;
+
+ //{rand() % 10, rand() % 10, rand() % 10, rand() % 10};
  //tutorialspoint.com and stack overflow
-printf("numbers %d %d %d %d\n", numbers[a]  , numbers[b] ,numbers[c] ,numbers[d]);	
+//printf("numbers %d %d %d %d\n", numbers[a],numbers[d],numbers[c],numbers[b]);	
 
 
 //TODO: these values will conceptually work with the user array and random array
@@ -50,26 +61,26 @@ if(users[c] == numbers[c]){
 
 }
 //debugging printf
-printf("users[c]:%c, numbers[c]:%c\n", users[c], numbers[c]);
+printf("users[c]:%d, numbers[c]:%d\n", users[c], numbers[c]);
 if (users[b] == numbers[b]){
 	red_counter += 1;
 	
 }
 
 //debugging printf
-printf("users[b]:%c, numbers[b]:%c\n", users[b], numbers[b]);
+printf("users[b]:%d, numbers[b]:%d\n", users[b], numbers[b]);
 if(users[a] == numbers[a]){
 	red_counter +=1; 
 	
 }
-printf("users[d]:%c, numbers[d]:%c\n", users[d], numbers[d]);
+printf("users[d]:%d, numbers[d]:%d\n", users[d], numbers[d]);
 if(users[d] == numbers[d]){
 	red_counter +=1; 
 	
 }
 
 //debugging printf
-printf("users[a]:%c, numbers[a]:%c\n", users[a], numbers[a]);
+printf("users[a]:%d, numbers[a]:%d\n", users[a], numbers[a]);
 
 //TODO: you need to use these if statements in a function
 // could possibly call it White_test
