@@ -13,7 +13,10 @@ int main(void)
 time_t t;
 srand((unsigned) time(&t));
 
+//user input for random number
+
 char users[10];
+printf("Please give me a number: "); 
 strtol(fgets(users, sizeof(users), stdin),NULL, 10);
 
 number_strip(users);
@@ -42,35 +45,8 @@ for(a=0; a<4; a++){
 		red_counter += 1;
 	}
 }
-/*
-if(users[c] == numbers[c]){
-	red_counter += 1;	
 
-}
-//debugging printf
-printf("users[c]:%d, numbers[c]:%d\n", users[c], numbers[c]);
-if (users[b] == numbers[b]){
-	red_counter += 1;
-	
-}
 
-//debugging printf
-printf("users[b]:%d, numbers[b]:%d\n", users[b], numbers[b]);
-if(users[a] == numbers[a]){
-	red_counter +=1; 
-	
-}
-printf("users[d]:%d, numbers[d]:%d\n", users[d], numbers[d]);
-if(users[d] == numbers[d]){
-	red_counter +=1; 
-	
-}
-
-//debugging printf
-printf("users[a]:%d, numbers[a]:%d\n", users[a], numbers[a]);
-*/
-//TODO: you need to use these if statements in a function
-// could possibly call it White_test
 if((users[c] == numbers[a] || users[c] == numbers[b] || users [c] == numbers[d]) && (users[c] != numbers[c])){
 	white_counter += 1;
 }
