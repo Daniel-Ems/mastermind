@@ -2,60 +2,43 @@
 #include <strings.h>
 #include <stdlib.h>
 #include <time.h>
- 
+
+
+
+void number_strip(char array[]);
 int main(void)
 {
-//printf("Give me a number hombre");
 
-//variables assigned for integers, and variables assigned for positions
-//TODO: i, j, k need to be a random 4 digit integer.
-
-
+//random number generated, 
 time_t t;
 srand((unsigned) time(&t));
 
 char users[10];
 strtol(fgets(users, sizeof(users), stdin),NULL, 10);
 
-int a = 1;
-int b = 2;
-int c = 0;
-int d = 3;
-users[a]=users[a]-48;
-users[b]=users[b]-48;
-users[c]=users[c]-48;
-users[d]=users[d]-48;
+number_strip(users);
    
-printf("%d, %d, %d, %d\n", 	users[a], users[b], users[c], users[d]);
+printf("%d, %d, %d, %d\n", 	users[0], users[1], users[2], users[3]);
 
-
-//TODO: I need to find out how to take a four digit number and turn it in
-//to single digits and then insert them in the arrays, once they are in 
-// the arrays... i win
 char numbers[5] = "1779";
-numbers[a]=numbers[a]-48;
-numbers[b]=numbers[b]-48;
-numbers[c]=numbers[c]-48;
-numbers[d]=numbers[d]-48;
 
- //{rand() % 10, rand() % 10, rand() % 10, rand() % 10};
- //tutorialspoint.com and stack overflow
-//printf("numbers %d %d %d %d\n", numbers[a],numbers[d],numbers[c],numbers[b]);	
+number_strip(numbers);
+
+printf("%d, %d, %d, %d \n", numbers[0], numbers[1], numbers[2], numbers[3]);
 
 
-//TODO: these values will conceptually work with the user array and random array
-
-
-
-
-//TODO: need counter for red and white increments
-//TODO: need a better way to inititate reds and whites without the other if need be 
 int red_counter = 0;
 int white_counter = 0;
 
 
-//TODO: You need to use these if statements in a function
-//could possibly call it red_test
+int a = 1;
+int b = 2;
+int c = 0;
+int d = 3;
+
+
+
+
 if(users[c] == numbers[c]){
 	red_counter += 1;	
 
@@ -101,5 +84,15 @@ if((users[d] == numbers[a] || users[d] == numbers[b] || users [d] == numbers [c]
 printf(" %d:white, %d:red\n", white_counter, red_counter);
 
 }
+
+void number_strip(char array[])
+{
+	int a = 0;
+	for(a=0; a < 4; a++){
+		array[a] = array[a]-48;
+	}
+	return;
+}
+
 
 
