@@ -37,8 +37,12 @@ int c = 0;
 int d = 3;
 
 
-
-
+for(a=0; a<4; a++){
+	if(users[a] == numbers[a]){
+		red_counter += 1;
+	}
+}
+/*
 if(users[c] == numbers[c]){
 	red_counter += 1;	
 
@@ -64,7 +68,7 @@ if(users[d] == numbers[d]){
 
 //debugging printf
 printf("users[a]:%d, numbers[a]:%d\n", users[a], numbers[a]);
-
+*/
 //TODO: you need to use these if statements in a function
 // could possibly call it White_test
 if((users[c] == numbers[a] || users[c] == numbers[b] || users [c] == numbers[d]) && (users[c] != numbers[c])){
