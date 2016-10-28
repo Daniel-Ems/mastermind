@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <string.h>
+#include <strings.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main(void)
 {
@@ -10,9 +11,9 @@ int main(void)
 //TODO: i, j, k need to be a random 4 digit integer.
 
 
-//TODO: these need to become user inputs 
+time_t t;
 char users[10];
-
+srand((unsigned) time(&t));
 fgets(users, sizeof(users), stdin);
 
 int a = 1;
@@ -26,7 +27,9 @@ printf("%c, %c, %c, %c \n", users[a], users[b], users[c], users[d]);
 //TODO: I need to find out how to take a four digit number and turn it in
 //to single digits and then insert them in the arrays, once they are in 
 // the arrays... i win
-char numbers[10] = "1234";
+int numbers[10] = {rand() % 10, rand() % 10, rand() % 10, rand() % 10};
+ //tutorialspoint.com and stack overflow
+printf("numbers %d %d %d %d\n", numbers[a]  , numbers[b] ,numbers[c] ,numbers[d]);	
 
 
 //TODO: these values will conceptually work with the user array and random array
