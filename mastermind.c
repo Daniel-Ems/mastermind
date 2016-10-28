@@ -5,15 +5,16 @@
 int main(void)
 {
 printf("Give me a number hombre");
-int numbers[] = {1234};
-
- 
 
 
-//int my_num = 1234;
+int i = 1;
+int j = 2;
+int k = 3;
+int numbers[10]={i,j,k};
 
- 
-printf("%d\n", *numbers);
+
+
+printf("%d\n", numbers[2] );
 
 
 
