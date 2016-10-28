@@ -4,7 +4,7 @@
 #include <time.h>
 
 
-
+void rand_function( char array []);
 void number_strip(char array[]);
 int main(void)
 {
@@ -17,17 +17,18 @@ srand((unsigned) time(&t));
 
 char users[10];
 printf("Please give me a number: "); 
-strtol(fgets(users, sizeof(users), stdin),NULL, 10);
+fgets(users, sizeof(users), stdin);
 
-number_strip(users);
+//number_strip(users);
    
-printf("%d, %d, %d, %d\n", 	users[0], users[1], users[2], users[3]);
+printf("%s\n:users", users);
 
-char numbers[5] = "1779";
+char numbers[5] ;
+rand_function(numbers);//{rand () % 10 +48, rand () % 10 +48 , rand () % 10 +48, rand () % 10 +48, '\0'};
 
-number_strip(numbers);
+//number_strip(numbers);
 
-printf("%d, %d, %d, %d \n", numbers[0], numbers[1], numbers[2], numbers[3]);
+printf("%s\n", numbers);
 
 
 int red_counter = 0;
@@ -39,13 +40,13 @@ int b = 2;
 int c = 0;
 int d = 3;
 
-
+char red_counts[5] = {'0','0','0','0','\0'} ;
 for(a=0; a<4; a++){
 	if(users[a] == numbers[a]){
 		red_counter += 1;
+		red_counts[a] = users[a];
 	}
 }
-
 
 if((users[c] == numbers[a] || users[c] == numbers[b] || users [c] == numbers[d]) && (users[c] != numbers[c])){
 	white_counter += 1;
@@ -62,7 +63,7 @@ if((users[d] == numbers[a] || users[d] == numbers[b] || users [d] == numbers [c]
 }
 
 printf(" %d:white, %d:red\n", white_counter, red_counter);
-
+printf(" %s:red_counts", red_counts);
 }
 
 void number_strip(char array[])
@@ -74,5 +75,19 @@ void number_strip(char array[])
 	return;
 }
 
+
+void rand_function(char array[])
+{
+	for(int a = 0; a < 4; a++){
+		array[a] = rand () % 10 +48;
+		
+	}
+	return ;
+}
+
+
+
+
+	
 
 
