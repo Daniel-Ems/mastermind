@@ -28,9 +28,11 @@ rand_function(numbers);
 //number_strip(numbers);
 
 while(numbers != users){
-
-printf("Please give me a number: "); 
-fgets(users, sizeof(users), stdin);
+	if(numbers == users){
+		break;
+	}
+	printf("Please give me a number: "); 
+	fgets(users, sizeof(users), stdin);
 
 	printf("%s\n", numbers);
 
