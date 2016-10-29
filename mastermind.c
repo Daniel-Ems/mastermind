@@ -24,9 +24,9 @@ char numbers[5] = "3483";
 int counter = 0;
 //TODO: clean code
 while(users != numbers){
-	counter += 1;
+	
 
-	printf("\nPlease give me a number: "); //<<<<<<<<<<<<<<<<<
+	printf("\nGuess a number:  "); //<<<<<<<<<<<<<<<<<
 	fgets(users, sizeof(users), stdin);
 
 	char fake_numbers[5];
@@ -34,7 +34,7 @@ while(users != numbers){
 
 	int red_counter = 0;
 	int white_counter =0;
-	
+	counter += 1;
 	strncpy(fake_numbers,numbers,5);
 	//TODO: check for invalid inputs
 	strncpy(fake_users,users,5);
@@ -43,10 +43,9 @@ while(users != numbers){
 
 	printf("%s fake_users\n", fake_users);
 	printf("%s fake_numbers\n", fake_numbers);
-	int a = 1;
-	int b = 2;
-
-	for(a=0; a<4; a++){
+	
+	int a,b;
+	for( a=0; a<4; a++){
 		if(users[a] == numbers[a]){
 			red_counter += 1;
 			fake_numbers[a] = 'q';
@@ -63,12 +62,10 @@ while(users != numbers){
 			}
 		}
 	} 
-	printf(" %d:white, %d:red\n", white_counter, red_counter);
+	printf("white:%d, red:%d\n", white_counter, red_counter);
 	if(red_counter == 4){
 		break;
 	}
-
-	 //<<<<<<<<<<<<<
 	
 	}
 printf(" it took you %d guesses\n", counter);
