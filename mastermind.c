@@ -26,7 +26,7 @@ int counter = 0;
 while(users != numbers){
 	
 
-	printf("\nGuess a number:  "); //<<<<<<<<<<<<<<<<<
+	printf("\nGuess a number:  \n"); //<<<<<<<<<<<<<<<<<
 	fgets(users, sizeof(users), stdin);
 
 	char fake_numbers[5];
