@@ -17,8 +17,6 @@ srand((unsigned) time(&t));
 //user input for random number
 
 char users[10];
-printf("Please give me a number: "); 
-fgets(users, sizeof(users), stdin);
 
 //number_strip(users);
    
@@ -30,6 +28,9 @@ rand_function(numbers);
 //number_strip(numbers);
 
 while(numbers != users){
+
+printf("Please give me a number: "); 
+fgets(users, sizeof(users), stdin);
 
 	printf("%s\n", numbers);
 
