@@ -53,7 +53,7 @@ while(users != numbers){
 		for(b=0; b<4; b++){
 			if(users[a] == fake_numbers[b]){
 				white_counter +=1;					
-				users[a] = 'W';
+				users[a] = 'z';
 				fake_numbers[a] = 'W';
 			}
 		}
