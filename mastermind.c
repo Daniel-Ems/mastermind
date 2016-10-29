@@ -40,15 +40,8 @@ while(1)
 	strncpy(guess_holder,user_guess,8);
 	printf("%s\n", secret_number); //<<<<<<<<<<<<<<<<<<<<<<<<<
 
-	int a = 1;
+	int a,b;
 
-	//printf("%s guess_holder", guess_holder);
-	//printf("%s number_holder", number_holder);
-
-	int b = 2;
-
-	//char red_counts[5] = {'0','0','0','0','\0'} ;
-	//char white_counts[5] = {'0','0','0','0','\0'};
 	for(a=0; a<4; a++){
 		if(user_guess[a] == secret_number[a]){
 			red_counter += 1;
