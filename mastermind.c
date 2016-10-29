@@ -3,6 +3,8 @@
 #include <time.h>
 #include <string.h>
 
+//
+
 void rand_function( char array []);
 void void_game(char array[]);
 int main(void)
@@ -10,13 +12,14 @@ int main(void)
 
 	printf("Only your first four digit's will be evaluated");
 	
-	//**information for random numbers was found at.
-	//tutorialspoint.com/c_standard_library/c_function_rand.htm
+	//** see citations at bottom of code
 	time_t t;
 	srand((unsigned) time(&t));
 	
 	//128 used to prevent people flooding the buffer
 	char user_guess[128];
+
+	//** see citations at bottom of code
 	char guess_holder[128];
 
 	//The random number is called outside of the while loop to allow it to remain
@@ -103,4 +106,19 @@ void rand_function(char array[])
 }
 
 
+/*citations
+
+1)
+the random number generation was found at.
+
+		"tutorialspoint.com/c_standard_library/c_function_rand.htm"
+
+2)
+the idea of using strncpy to create place holders for both user_guess and 
+secret_number was from Steven Solis. No code was copied. Rather Solis 
+recommended I use strncpy in addition with what I was currently trying; to 
+create an array of red flag values as they matched within my for loop. Strncpy 
+allowed to create an array prior to evaluating the two, and to cross them off 
+as i went along. 
+*/
 
