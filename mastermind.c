@@ -44,7 +44,7 @@ while(users != numbers){
 	for(a=0; a<4; a++){
 		if(users[a] == numbers[a]){
 			red_counter += 1;
-			fake_numbers[a] = 'R';
+			fake_numbers[a] = 'q';
 			users[a] = 'R';
 		}
 	}
