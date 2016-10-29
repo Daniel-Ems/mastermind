@@ -5,67 +5,76 @@
 #include <string.h>
 
 void rand_function( char array []);
+void number_strip(char array[]);
 int main(void)
 {
 
 time_t t;
 srand((unsigned) time(&t));
 
-char users[5];
-char fake_users[5];
-char numbers[5] = "1799";
-//rand_function(numbers);
+char user_guess[8];
+char guess_holder[8];
+char secret_number[8] ;
+rand_function(secret_number);
 int counter = 0;
 
 
-while(users != numbers){
+while(1)
+{
 
 	int red_counter = 0;
 	int white_counter =0;
 	
 	
-	char fake_numbers[5];
+	char number_holder[8];
 	
 
-	strncpy(fake_numbers,numbers,5);
+	strncpy(number_holder,secret_number,8);
 
 	printf("\nPlease give me a number: "); //<<<<<<<<<<<<<<<<<
-	fgets(users, sizeof(users), stdin);
-	counter += 1;
-	strncpy(fake_users,users,5);
-	printf("%s\n", numbers); //<<<<<<<<<<<<<<<<<<<<<<<<<
+	fgets(user_guess, sizeof(user_guess), stdin);
 
-	printf("%s fake_users\n", fake_users);
-	printf("%s fake_numbers\n", fake_numbers);
+	user_guess[6]='\0';
+	
+	counter += 1;
+	strncpy(guess_holder,user_guess,8);
+	printf("%s\n", secret_number); //<<<<<<<<<<<<<<<<<<<<<<<<<
+
 	int a = 1;
+
+	//printf("%s guess_holder", guess_holder);
+	//printf("%s number_holder", number_holder);
+
 	int b = 2;
 
+	//char red_counts[5] = {'0','0','0','0','\0'} ;
+	//char white_counts[5] = {'0','0','0','0','\0'};
 	for(a=0; a<4; a++){
-		if(users[a] == numbers[a]){
+		if(user_guess[a] == secret_number[a]){
 			red_counter += 1;
-			fake_numbers[a] = 'q';
-			users[a] = 'R';
+			guess_holder[a] = 'R';
+			number_holder[a] = 'W';
 		}
 	}
 
 	for(a=0; a<4; a++){
 		for(b=0; b<4; b++){
-			if(users[a] == fake_numbers[b]){
+			if(guess_holder[a] == number_holder[b]){
 				white_counter +=1;					
-				users[a] = 'z';
-				fake_numbers[b] = 'W';
+				number_holder[b] = 'W'; 
+				guess_holder[a] = 'x';
+				
 			}
 		}
-	} 
-	printf(" %d:white, %d:red\n", white_counter, red_counter);
+	}
+
 	if(red_counter == 4){
 		break;
 	}
-
-	 //<<<<<<<<<<<<<
-	
-	}
-printf(" it took you %d guesses\n", counter);
+	printf("%d:white, %d:red\n", white_counter, red_counter); //<<<<<<<<<<<<<
+ 
+}
+printf("it took you %d guesses\n", counter);
 printf("You won\n");
 }
 
@@ -73,8 +82,8 @@ void rand_function(char array[])
 {
 	for(int a = 0; a < 4; a++){
 		array[a] = rand () % 10 +48;
-		
 	}
+	array[5] = '\0';
 	return;
 }
 
