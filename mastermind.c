@@ -14,8 +14,8 @@ srand((unsigned) time(&t));
 
 char users[10];
 char fake_users[10];
-char numbers[5] ;
-rand_function(numbers);
+char numbers[5] = "1779";
+//rand_function(numbers);
 int counter = 0;
 
 
@@ -41,22 +41,20 @@ while(users != numbers){
 	int a = 1;
 	int b = 2;
 
-	char red_counts[5] = {'0','0','0','0','\0'} ;
-	char white_counts[5] = {'0','0','0','0','\0'};
 	for(a=0; a<4; a++){
-		if(fake_users[a] == fake_numbers[a]){
+		if(users[a] == numbers[a]){
 			red_counter += 1;
-			fake_users[a] = 'R';
+			fake_numbers[a] = 'R';
+			users[a] = 'R';
 		}
 	}
 
 	for(a=0; a<4; a++){
 		for(b=0; b<4; b++){
-			if(fake_users[a] == fake_numbers[b]){
+			if(users[a] == fake_numbers[b]){
 				white_counter +=1;					
-				fake_numbers[b] = 'W'; 
-				fake_users[a] = 'x';
-				
+				users[a] = 'W';
+				fake_numbers[a] = 'W';
 			}
 		}
 	} 
@@ -65,8 +63,7 @@ while(users != numbers){
 	}
 
 	printf(" %d:white, %d:red\n", white_counter, red_counter); //<<<<<<<<<<<<<
-	printf(" %s:red_counts\n", red_counts);//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-	printf(" %s:white_counts", white_counts); 
+	
 	}
 printf(" it took you %d guesses\n", counter);
 printf("You won\n");
