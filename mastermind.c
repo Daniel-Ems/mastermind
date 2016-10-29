@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h>
 #include <string.h>
-
+//void guess_check(char array[]);
 void rand_function( char array []);
-void number_strip(char array[]);
+void void_game(char array[]);
 int main(void)
 {
 
@@ -14,33 +13,48 @@ srand((unsigned) time(&t));
 
 char user_guess[8];
 char guess_holder[8];
+
 char secret_number[8] ;
 rand_function(secret_number);
-int counter = 0;
+
+int guess_counter = 0;
 
 
 while(1)
 {
+
+	int a,b;
 
 	int red_counter = 0;
 	int white_counter =0;
 	
 	
 	char number_holder[8];
-	
-
 	strncpy(number_holder,secret_number,8);
 
-	printf("\nPlease give me a number: "); //<<<<<<<<<<<<<<<<<
+	hell:
+	printf("\nPlease give me a number: "); 
 	fgets(user_guess, sizeof(user_guess), stdin);
-
-	user_guess[6]='\0';
 	
-	counter += 1;
-	strncpy(guess_holder,user_guess,8);
-	printf("%s\n", secret_number); //<<<<<<<<<<<<<<<<<<<<<<<<<
+	user_guess[5]='\0';
+	for(a=0; a<4; a++){
+		if(user_guess[a] < 48 || user_guess[a] > 57){
+			printf("Please give appropritate values\n");
+			goto hell;
+		}
+	}
+	
 
-	int a,b;
+	//guess_check(user_guess);
+
+	guess_counter += 1;
+
+	//user_guess[5]='\0';
+	strncpy(guess_holder,user_guess,8);
+
+	printf("%s\n", secret_number); 
+
+	
 
 	for(a=0; a<4; a++){
 		if(user_guess[a] == secret_number[a]){
@@ -64,11 +78,12 @@ while(1)
 	if(red_counter == 4){
 		break;
 	}
-	printf("%d:white, %d:red\n", white_counter, red_counter); //<<<<<<<<<<<<<
+	printf("%d:white, %d:red\n", white_counter, red_counter); 
  
 }
-printf("it took you %d guesses\n", counter);
-printf("You won\n");
+printf("Congratulations!\n You Won!\n");
+printf("It only took you %d guesses\n", guess_counter);
+
 }
 
 void rand_function(char array[])
@@ -80,9 +95,17 @@ void rand_function(char array[])
 	return;
 }
 
-
-
-
-	
-
+/*
+void guess_check(char array[])
+{
+	int a;
+	for(a=0; a<4; a++){
+		if(array[a] < 48 || array[a] > 57){
+			printf("Please give appropritate values\n");
+			goto hell;
+		}
+	}
+	return;
+}
+*/
 
