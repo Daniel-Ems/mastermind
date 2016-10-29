@@ -1,39 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h>
 #include <string.h>
 
+
 void rand_function( char array []);
-void number_strip(char array[]);
 int main(void)
 {
 
+//tutorialspoint and stack overflow
 time_t t;
 srand((unsigned) time(&t));
 
-char users[10];
-char fake_users[10];
-char numbers[5] = "1779";
+char users [5];
+//Used to remove digits as matchable after they are matched.
+
+
+
+char numbers[5] = "3483";
+
 //rand_function(numbers);
+
 int counter = 0;
-
-
+//TODO: clean code
 while(users != numbers){
+	counter += 1;
+
+	printf("\nPlease give me a number: "); //<<<<<<<<<<<<<<<<<
+	fgets(users, sizeof(users), stdin);
+
+	char fake_numbers[5];
+	char fake_users[5]; 
 
 	int red_counter = 0;
 	int white_counter =0;
 	
-	
-	char fake_numbers[5];
-	
-
 	strncpy(fake_numbers,numbers,5);
-
-	printf("\nPlease give me a number: "); //<<<<<<<<<<<<<<<<<
-	fgets(users, sizeof(users), stdin);
-	counter += 1;
+	//TODO: check for invalid inputs
 	strncpy(fake_users,users,5);
+
 	printf("%s\n", numbers); //<<<<<<<<<<<<<<<<<<<<<<<<<
 
 	printf("%s fake_users\n", fake_users);
@@ -54,15 +59,16 @@ while(users != numbers){
 			if(users[a] == fake_numbers[b]){
 				white_counter +=1;					
 				users[a] = 'z';
-				fake_numbers[a] = 'W';
+				fake_numbers[b] = 'W';
 			}
 		}
 	} 
+	printf(" %d:white, %d:red\n", white_counter, red_counter);
 	if(red_counter == 4){
 		break;
 	}
 
-	printf(" %d:white, %d:red\n", white_counter, red_counter); //<<<<<<<<<<<<<
+	 //<<<<<<<<<<<<<
 	
 	}
 printf(" it took you %d guesses\n", counter);
@@ -78,9 +84,5 @@ void rand_function(char array[])
 	return;
 }
 
-
-
-
-	
 
 
