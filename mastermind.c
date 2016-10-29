@@ -2,6 +2,7 @@
 #include <strings.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 
 void rand_function( char array []);
@@ -17,33 +18,32 @@ srand((unsigned) time(&t));
 //user input for random number
 
 char users[10];
+char numbers[5] ;
+rand_function(numbers);
+
 
 //number_strip(users);
    
 //printf("%s\n:users", users);
 
-char numbers[5] ;
-rand_function(numbers);
 
+	int a = 1;
+	int b = 2;
 
-int red_counter = 0;
-int white_counter = 0;
 
 //number_strip(numbers);
 
-while(red_counter != 4){
-	
-	printf("\nPlease give me a number: "); 
+while(users != numbers){
+
+	int red_counter = 0;
+	int white_counter =0;
+
+	printf("\nPlease give me a number: "); //<<<<<<<<<<<<<<<<<
 	fgets(users, sizeof(users), stdin);
 
 	printf("%s\n", numbers); //<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
-
-	int a = 1;
-	int b = 2;
-	int c = 0;
-	int d = 3;
 
 	char red_counts[5] = {'0','0','0','0','\0'} ;
 	for(a=0; a<4; a++){
@@ -52,20 +52,31 @@ while(red_counter != 4){
 			red_counts[a] = users[a];
 		}
 	}
+
+	for(a=0; a<4; a++){
+		for(b=0; b<4; b++){
+			if(users[a] == numbers[b] && users[a] != red_counts[b]){
+				white_counter+=1;
+			}
+		}
+	} 
+
+/*
 	
-	if((users[c] == numbers[a] || users[c] == numbers[b] || users [c] == numbers[d]) && 		(users	[c] != numbers[c])){	
+	if((users[c] == numbers[a] || users[c] == numbers[b] || users [c] == numbers[d]) && (users	[c] != numbers[c])){	
 		white_counter += 1;
 	}
-	if((users[b] == numbers[a] || users[b] == numbers[c] || users [b] == numbers [d]) && 		(users	[b] != numbers[b])){	
+	if((users[b] == numbers[a] || users[b] == numbers[c] || users [b] == numbers [d]) && (users	[b] != numbers[b])){	
 		white_counter += 1;	
 	}
-	if((users[a] == numbers[c] || users[a] == numbers[b] || users [a] == numbers[d]) && 		(users	[a] != numbers[a])){
+	if((users[a] == numbers[c] || users[a] == numbers[b] || users [a] == numbers[d]) && (users	[a] != numbers[a])){
 		white_counter += 1;	
 	}
 	if((users[d] == numbers[a] || users[d] == numbers[b] || users [d] == numbers [c]) && 		(users	[d] != numbers[d])){
 		white_counter += 1;	
 
 	}
+*/
 	if(red_counter == 4){
 		break;
 	}
@@ -73,7 +84,7 @@ while(red_counter != 4){
 	printf(" %d:white, %d:red\n", white_counter, red_counter); //<<<<<<<<<<<<<
 	printf(" %s:red_counts\n", red_counts);//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	}
-printf("You won");
+printf("You won\n");
 }
 
 void number_strip(char array[])
