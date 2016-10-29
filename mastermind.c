@@ -20,25 +20,24 @@ char users[10];
 
 //number_strip(users);
    
-printf("%s\n:users", users);
+//printf("%s\n:users", users);
 
 char numbers[5] ;
 rand_function(numbers);
 
+
+int red_counter = 0;
+int white_counter = 0;
+
 //number_strip(numbers);
 
-while(numbers != users){
-	if(numbers == users){
-		break;
-	}
-	printf("Please give me a number: "); 
+while(red_counter != 4){
+	
+	printf("\nPlease give me a number: "); 
 	fgets(users, sizeof(users), stdin);
 
-	printf("%s\n", numbers);
+	printf("%s\n", numbers); //<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
-	int red_counter = 0;
-	int white_counter = 0;
 
 
 	int a = 1;
@@ -67,10 +66,14 @@ while(numbers != users){
 		white_counter += 1;	
 
 	}
-
-	printf(" %d:white, %d:red\n", white_counter, red_counter);
-	printf(" %s:red_counts", red_counts);
+	if(red_counter == 4){
+		break;
 	}
+
+	printf(" %d:white, %d:red\n", white_counter, red_counter); //<<<<<<<<<<<<<
+	printf(" %s:red_counts\n", red_counts);//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	}
+printf("You won");
 }
 
 void number_strip(char array[])
